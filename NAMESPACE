@@ -6,7 +6,6 @@ import(
   statmod
 )
 
-
 # Export generics for dglm.object
 S3method(summary, dglm)
 S3method(anova, dglm)

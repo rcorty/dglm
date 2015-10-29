@@ -3,7 +3,7 @@ anova.dglm <- function(object, ..., dispersion = NULL, test = NULL)
   #  ANOVA for double glm (likelihood ratio tests for mean and dispersion models)
   #  GKS  16 Jan 98
   #
-  response <- as.character(formula(object)[2])
+  response <- as.character(stats::formula(object)[2])
   mterms <- object$terms
   dterms <- object$dispersion.fit$terms
   df <- c(length(mterms),length(dterms))
@@ -94,7 +94,7 @@ anova.dglm <- function(object, ..., dispersion = NULL, test = NULL)
   aod <- data.frame(row.names = c("Mean model","Dispersion model"),
                     DF = df,
                     Seq.Chisq = seqdev,
-                    Seq.P = 1-pchisq(seqdev,ifelse(df>0,df,NA)),
+                    Seq.P = 1 - stats::pchisq(seqdev,ifelse(df>0,df,NA)),
                     Adj.Chisq=adjdev,
                     Adj.P = 1-pchisq(adjdev,ifelse(df>0,df,NA)))
   structure(aod, heading=heading, class=c("anova","data.frame") )

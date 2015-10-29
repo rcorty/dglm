@@ -10,7 +10,7 @@ Description: Model fitting and evaluation tools for double generalized linear mo
   a second GLM to fit the deviance of the first model.  
 License: GPL (>= 2)
 NeedsCompilation: no
-URL: https://cran.r-project.org/web/packages/dglm/index.html
+URL: https://cran.r-project.org/package=dglm
 Packaged: 2014-11-07 02:38:55 UTC; root
 Repository: CRAN
 Date/Publication: 2014-11-07 13:45:29
