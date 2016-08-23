@@ -4,11 +4,12 @@
 #'
 #' @param object The fitted dglm object whose residuals we want
 #' @param ... additional parameters to residuals.glm
+#' 
+#' @description This implements the 'residuals' generic for the dglm object
 #'
-#' @return
+#' @return the residuals from the mean portion of the dglm object
 #' @export
 #'
-#' @examples
 residuals.dglm <- function(object, ...) {
   return(stats::residuals.glm(object = object, ...))
 }

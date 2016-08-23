@@ -1,9 +1,0 @@
-5028ba3d197b5a62197d21339e141f7b *ChangeLog
-f76e264ea0cc2dc37481e2f7b39fbd3e *DESCRIPTION
-0763de45fc205aab74e7975741d3b71f *NAMESPACE
-9c35da275276339569f710c903a7fca7 *R/dglmall.R
-4cfa510a9e7e2884e028f1d4500ae524 *man/anova.dglm.Rd
-466c9f85e3ea7884ffde5ab5e428f0d9 *man/dglm.Rd
-8cc58d13791dd22afd57d61cc59d810a *man/dglm.control.Rd
-cf4a4f58b7d85d15a467e40a921c742e *man/dglm.object.Rd
-58d19d4919f1e777e3bcfcc2ed2968f7 *man/summary.dglm.Rd
