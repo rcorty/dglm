@@ -1,4 +1,4 @@
-anova.dglm <- function(object, ..., dispersion = NULL, test = NULL)
+anova.dglm <- function(object)
 {
   #  ANOVA for double glm (likelihood ratio tests for mean and dispersion models)
   #  GKS  16 Jan 98
@@ -89,14 +89,14 @@ anova.dglm <- function(object, ..., dispersion = NULL, test = NULL)
   #  Output table
   #
   heading <- c("Analysis of Deviance Table",
-               paste("\n",object$family$family," double generalized linear model",sep=""),
+               paste("\n",object$family$family," double generalized linear model",sep = ""),
                paste("\nResponse: ", response,"\n", sep = "") )
   aod <- data.frame(row.names = c("Mean model","Dispersion model"),
                     DF = df,
                     Seq.Chisq = seqdev,
-                    Seq.P = 1 - stats::pchisq(seqdev,ifelse(df>0,df,NA)),
-                    Adj.Chisq=adjdev,
-                    Adj.P = 1-pchisq(adjdev,ifelse(df>0,df,NA)))
-  structure(aod, heading=heading, class=c("anova","data.frame") )
+                    Seq.P = 1 - stats::pchisq(seqdev,ifelse(df > 0,df,NA)),
+                    Adj.Chisq = adjdev,
+                    Adj.P = 1 - stats::pchisq(adjdev,ifelse(df > 0,df,NA)))
+  structure(aod, heading = heading, class = c("anova","data.frame") )
   
 }
