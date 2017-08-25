@@ -17,4 +17,5 @@ URL: https://cran.r-project.org/package=dglm
 Packaged: 2014-11-07 02:38:55 UTC; root
 Repository: CRAN
 Date/Publication: 2014-11-07 13:45:29
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
+Suggests: testthat
