@@ -301,8 +301,8 @@ dglm <- function(formula = formula(data),
     ################################
     #      mean submodel
     zm <- eta + (y - mu) / family$mu.eta(eta)
-    fam.wt <- expression( weights * family$variance(mu) )
-    wm <- eval( fam.wt )/phi
+    fam.wt <- expression( weights / family$variance(mu) )
+    wm <- eval( fam.wt ) / phi * family$mu.eta(eta)^2
     mfit <- stats::lm.wfit(X, zm, wm, method = "qr", singular.ok = TRUE)
     eta <- mfit$fitted.values
     mu <- family$linkinv(eta+offset)
