@@ -355,7 +355,7 @@ dglm <- function(formula = formula(data),
   mfit$df.null <- N - sum(weights == 0) - as.integer(intercept)
   mfit$deviance <- sum(d/phi)
   mfit$aic <- NA
-  mfit$null.deviance <- stats::glm.fit(x = X, y = y, weights = weights/phi, offset = offset, family = family)
+  mfit$null.deviance <- stats::glm.fit(x = X, y = y, weights = weights/phi, offset = offset, family = family, mustart = mustart)
   if (length(mfit$null.deviance) > 1) mfit$null.deviance <- mfit$null.deviance$null.deviance
   if (ykeep) mfit$y <- y
   if (xkeep) mfit$x <- X
