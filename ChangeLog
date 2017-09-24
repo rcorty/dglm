@@ -3,7 +3,7 @@
 
 
 1.8.2 04 November 2015
-    Added model frames to the return object as [[‘model’]]. This is consistent with how 
+    Added model frames to the return object as [['model’]]. This is consistent with how 
     glm() works and fixes a bug where predict(dglm.object, se = TRUE) produced an error 
     when called from any environment other than global.
 

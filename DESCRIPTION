@@ -1,6 +1,6 @@
 Package: dglm
 Version: 1.8.3
-Date: 2015-10-27
+Date: 2017-09-23
 Title: Double Generalized Linear Models
 Author: Peter K Dunn <pdunn2@usc.edu.au> and Gordon K Smyth
 Maintainer: Robert Corty <robert_corty@med.unc.edu>
@@ -14,8 +14,5 @@ Description: Model fitting and evaluation tools for double generalized linear
 License: GPL (>= 2)
 NeedsCompilation: no
 URL: https://cran.r-project.org/package=dglm
-Packaged: 2014-11-07 02:38:55 UTC; root
-Repository: CRAN
-Date/Publication: 2014-11-07 13:45:29
 RoxygenNote: 6.0.1
 Suggests: testthat
