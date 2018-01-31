@@ -342,17 +342,17 @@ dglm <- function(formula = formula(data),
   mfit$call <- call
   mfit$formula <- formula #environment(call$formula)
   mfit$terms <- mterms
-
   mfit$model <- mean.mframe
-
   mfit$family <- family
 
+  mfit$prior.weights <- weights
   mfit$linear.predictors <- mfit$fitted.values+offset
   mfit$fitted.values <- mu
-  mfit$prior.weights <- weights
+  
   mfit$contrasts <- attr(X, "contrasts")
   intercept <- attr(mterms, "intercept")
   mfit$df.null <- N - sum(weights == 0) - as.integer(intercept)
+  
   mfit$deviance <- sum(d/phi)
   mfit$aic <- NA
   mfit$null.deviance <- stats::glm.fit(x = X, y = y, weights = weights/phi, offset = offset, family = family, mustart = mustart)
@@ -367,26 +367,33 @@ dglm <- function(formula = formula(data),
   #  nested in one output component.
   #
 
-  call$formula <- dformula
+  dfit$call <- call
+  dfit$formula <- as.vector(attr(dterms, "formula"))
   dfit$terms <- dterms
   dfit$model <- var.mframe
   dfit$family <- dfamily
+  
   dfit$prior.weights <- rep(1, N)
   dfit$linear.predictors <- dfit$fitted.values + doffset
   dfit$fitted.values <- phi
+  
+  dfit$contrasts <- attr(Z, 'contrasts')
+  dintercept <- attr(dterms, 'intercept')
+  dfit$df.null <- N - sum(wd == 0) - as.integer(dintercept)
+  
+  dfit$deviance <- sum( dfit$residuals  )
   dfit$aic <- NA
+  dfit$null.deviance <- stats::glm.fit(x = Z, y = d, weights = rep(1/2, N), offset = doffset, family = dfamily)
+  
   call$dformula <- NULL
   call$family <- call(dfamily$family,link = name.dlink)
-  dfit$call <- call
   dfit$residuals <- dfamily$dev.resid(d, phi, wt = rep(1/2,N) )
-  dfit$deviance <- sum( dfit$residuals  )
-  dfit$null.deviance <- stats::glm.fit(x = Z, y = d, weights = rep(1/2, N), offset = doffset, family = dfamily)
   if (length(dfit$null.deviance) > 1) dfit$null.deviance <- dfit$null.deviance$null.deviance
   if (ykeep) dfit$y <- d
   if (zkeep) dfit$z <- Z
-  dfit$formula <- as.vector(attr(dterms, "formula"))
   dfit$iter <- iter
   class(dfit) <- c("glm","lm")
+  
   out <- c(mfit, list(dispersion.fit = dfit, iter = iter, method = method, m2loglik = m2loglik))
   class(out) <- c("dglm","glm","lm")
   out
