@@ -207,7 +207,7 @@ dglm <- function(formula = formula(data),
   } else {
     deta <- stats::lm.fit(Z,dfamily$linkfun(d + (d == 0)/6) - doffset,singular.ok = TRUE)$fitted.values
     if (logdlink) deta <- deta + 1.27036
-    phi <- dfamily$linkinv(deta + offset)
+    phi <- dfamily$linkinv(deta + offset)   # should be doffset?  RWC
   }
   if (any(phi <= 0)) {
     warning("Some values for  phi  are non-positive, suggesting an inappropriate model",

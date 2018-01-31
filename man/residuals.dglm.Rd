@@ -20,4 +20,3 @@ This implements the 'residuals' generic for the dglm object
 \author{
 Robert W. Corty
 }
-
