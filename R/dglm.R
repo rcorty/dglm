@@ -53,12 +53,8 @@ dglm <- function(formula = formula(data),
   cnames <- cnames[match(mnames,cnames,0)]
   mcall <- call[cnames]
   mcall[[1]] <- as.name("model.frame")
-  mean.mframe <- eval(expr = mcall,
-                      envir = parent.frame())
-  ### Dunn:  NEEDS THE <<- ############
-  ### Corty: I copied this line from glm() and it seems to work
-  ###        See notes in git repo.  Solved a problem w R CMD CHECK
-  # mf <- match.call(expand.dots = FALSE)  # commented this out with seemingly no problem.
+  mean.mframe <<- eval(mcall, sys.parent())  ### NEEDS THE <<- 
+  mf <- match.call(expand.dots = FALSE)
   
   #   Now extract the glm components
   y <- stats::model.response(mean.mframe, "numeric")
