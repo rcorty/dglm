@@ -14,5 +14,5 @@ Description: Model fitting and evaluation tools for double generalized linear
 License: GPL (>= 2)
 NeedsCompilation: no
 URL: https://cran.r-project.org/package=dglm
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 Suggests: testthat
