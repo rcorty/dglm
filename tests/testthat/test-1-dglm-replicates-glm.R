@@ -1,4 +1,4 @@
-context(desc = 'Testing whether dglm matches dglm when dformula is missing')
+context(desc = 'Testing whether dglm matches glm when dformula is missing')
 
 set.seed(27599)
 
